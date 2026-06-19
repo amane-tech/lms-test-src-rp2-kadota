@@ -96,7 +96,14 @@ public class Case04 {
 	@DisplayName("テスト04 「よくある質問」リンクからよくある質問画面を別タブに開く")
 	void test04() {
 		// TODO ここに追加
-		goTo("http://localhost:8080/lms/faq");
+		WebElement menuElement = webDriver.findElement(By.linkText("機能"));
+		menuElement.click();
+
+		WebElement faqElement = webDriver.findElement(By.linkText("よくある質問"));
+		faqElement.click();
+
+		Object[] windowHandles = webDriver.getWindowHandles().toArray();
+		webDriver.switchTo().window((String) windowHandles[1]);
 
 		WebElement faqTitleElement = webDriver.findElement(By.cssSelector("h2"));
 
