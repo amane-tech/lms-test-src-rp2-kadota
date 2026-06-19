@@ -40,6 +40,10 @@ public class Case02 {
 	void test01() {
 		// TODO ここに追加
 		goTo("http://localhost:8080/lms");
+		WebElement titleElement = webDriver.findElement(By.cssSelector("h2"));
+		assertEquals("ログイン", titleElement.getText(), "遷移した画面のタイトルが「ログイン」であること");
+		getEvidence(new Object() {
+		});
 	}
 
 	@Test
@@ -47,12 +51,13 @@ public class Case02 {
 	@DisplayName("テスト02 DBに登録されていないユーザーでログイン")
 	void test02() {
 		// TODO ここに追加
+		goTo("http://localhost:8080/lms");
 		WebElement idElement = webDriver.findElement(By.id("loginId"));
 		WebElement password = webDriver.findElement(By.id("password"));
 		idElement.clear();
-		idElement.sendKeys("テスト太郎");
+		idElement.sendKeys("testStudent01");
 		password.clear();
-		password.sendKeys("wrong_pass");
+		password.sendKeys("testStudent01");
 
 		webDriver.findElement(By.cssSelector("input[type='submit']")).submit();
 

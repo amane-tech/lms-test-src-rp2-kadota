@@ -40,10 +40,8 @@ public class Case01 {
 	void test01() {
 		// TODO ここに追加
 		goTo("http://localhost:8080/lms");
-		WebElement idElement = webDriver.findElement(By.id("loginId"));
-		idElement.clear();
-		idElement.sendKeys("テスト太郎");
-		assertEquals("テスト太郎", idElement.getAttribute("value"), "IDで指定した要素の値が正しく入力されていること");
+		WebElement titleElement = webDriver.findElement(By.cssSelector("h2"));
+		assertEquals("ログイン", titleElement.getText(), "遷移した画面のタイトルが「ログイン」であること");
 		getEvidence(new Object() {
 		});
 
