@@ -121,6 +121,10 @@ public class Case05 {
 		WebElement searchElement = webDriver.findElement(By.name("keyword"));
 		searchElement.sendKeys("申し込み");
 		searchElement.submit();
+
+		WebElement resultElement = webDriver.findElement(By.cssSelector("th"));
+		assertEquals("検索結果", resultElement.getText(), "キーワード検索結果が表示されること");
+
 		getEvidence(new Object() {
 
 		});
@@ -134,6 +138,9 @@ public class Case05 {
 		// TODO ここに追加
 		WebElement searchElement = webDriver.findElement(By.name("keyword"));
 		searchElement.clear();
+
+		assertEquals("", searchElement.getAttribute("value"), "「クリア」ボタン押下で入力したキーワードが消去されること");
+
 		getEvidence(new Object() {
 
 		});
