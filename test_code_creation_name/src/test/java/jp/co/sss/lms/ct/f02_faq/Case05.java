@@ -118,6 +118,13 @@ public class Case05 {
 	@DisplayName("テスト05 キーワード検索で該当キーワードを含む検索結果だけ表示")
 	void test05() {
 		// TODO ここに追加
+		WebElement searchElement = webDriver.findElement(By.name("keyword"));
+		searchElement.sendKeys("申し込み");
+		searchElement.submit();
+		getEvidence(new Object() {
+
+		});
+
 	}
 
 	@Test
@@ -125,6 +132,11 @@ public class Case05 {
 	@DisplayName("テスト06 「クリア」ボタン押下で入力したキーワードを消去")
 	void test06() {
 		// TODO ここに追加
+		WebElement searchElement = webDriver.findElement(By.name("keyword"));
+		searchElement.clear();
+		getEvidence(new Object() {
+
+		});
 	}
 
 }
