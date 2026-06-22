@@ -122,8 +122,8 @@ public class Case05 {
 		searchElement.sendKeys("申し込み");
 		searchElement.submit();
 
-		WebElement resultElement = webDriver.findElement(By.cssSelector("th"));
-		assertEquals("検索結果", resultElement.getText(), "キーワード検索結果が表示されること");
+		WebElement resultElement = webDriver.findElement(By.cssSelector("tbody"));
+		assertTrue(resultElement.getText().contains("研修の申し込み"), "該当キーワードを含むキーワード検索結果が表示されること");
 
 		getEvidence(new Object() {
 

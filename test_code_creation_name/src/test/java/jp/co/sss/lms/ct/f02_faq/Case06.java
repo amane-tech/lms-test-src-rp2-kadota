@@ -121,8 +121,8 @@ public class Case06 {
 		WebElement categoryElement = webDriver.findElement(By.partialLinkText("研修関係"));
 		categoryElement.click();
 
-		WebElement categoryTitleElement = webDriver.findElement(By.cssSelector("th"));
-		assertEquals("検索結果", categoryTitleElement.getText(), "カテゴリ検索結果が表示されること");
+		WebElement resultElement = webDriver.findElement(By.cssSelector("tbody"));
+		assertTrue(resultElement.getText().contains("研修の申し込み"), "カテゴリ検索結果が表示されること");
 
 		getEvidence(new Object() {
 
