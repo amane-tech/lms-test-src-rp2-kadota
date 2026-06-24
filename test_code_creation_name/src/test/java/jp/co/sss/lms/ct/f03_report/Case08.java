@@ -52,7 +52,6 @@ public class Case08 {
 	@DisplayName("テスト02 初回ログイン済みの受講生ユーザーでログイン")
 	void test02() {
 		// TODO ここに追加
-		goTo("http://localhost:8080/lms");
 
 		WebElement loginIdElement = webDriver.findElement(By.id("loginId"));
 		loginIdElement.clear();
@@ -158,7 +157,10 @@ public class Case08 {
 		jse.executeScript("arguments[0].click();", reportElement);
 
 		WebElement resultElement = webDriver.findElement(By.cssSelector("h2"));
-		assertTrue(resultElement.getText().contains("2022年10月2日"), "レポート詳細画面で修正内容が反映されていること");
+		assertTrue(resultElement.getText().contains("2022年10月2日"), "レポート詳細画面に遷移すること");
+
+		WebElement updateElement = webDriver.findElement(By.xpath("//*[contains(text(), '報告内容を修正するテストです。')]"));
+		assertTrue(updateElement.getText().contains("報告内容を修正するテストです。"), "レポート詳細画面で修正内容が反映されていること");
 
 		getEvidence(new Object() {
 

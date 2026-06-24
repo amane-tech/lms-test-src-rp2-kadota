@@ -51,8 +51,6 @@ public class Case07 {
 	@DisplayName("テスト02 初回ログイン済みの受講生ユーザーでログイン")
 	void test02() {
 		// TODO ここに追加
-		goTo("http://localhost:8080/lms");
-
 		WebElement loginIdElement = webDriver.findElement(By.id("loginId"));
 		loginIdElement.clear();
 		loginIdElement.sendKeys("StudentAA01");
